@@ -14,6 +14,8 @@
 
     --content-background: #E5E7EB;
     --content-paddingtop: 2.2rem;
+    --content-cardSideDecoration: #9CA3AF;
+    --content-cardBorderRadius: 1em;
 
     --profilepic-width: 2.5em;
     --hover-color: #6B7280;
@@ -207,11 +209,49 @@ body {
     font-weight: 700;
     padding-bottom: var(--item-gap);
 }
-.projects-cards.card {
-    width: ;
+.project-cards .card {
+    box-sizing: border-box;
+    background-color: var(--header-background);
+    padding: var(--item-gap1);
+    border-radius: var(--content-cardBorderRadius);
+    height: 14em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    -webkit-box-shadow: 3px 5px 6px -2px rgba(0,0,0,0.27); 
+    box-shadow: 3px 5px 6px -2px rgba(0,0,0,0.27);
 }
 
-.projects-cards {
+.card .side-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--item-gap1)*0.5);
+    height: 100%;
+    background-color: var(--content-cardSideDecoration);
+    border-radius:  var(--content-cardBorderRadius) 0px;
+}
+
+.project-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, fit-content);
+    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+    gap: var(--item-gap1);
+}
+
+.project-cards .project-name {
+    font-weight: 700;
+    font-size: var(--sidebar-fontsize);
+    padding-bottom: 0.5em;
+}
+
+.project-cards .card-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--item-gap1);
+    width: 100%;
+    margin-top: auto;
+}
+
+.card-icons img:hover {
+    cursor: pointer;
 }
