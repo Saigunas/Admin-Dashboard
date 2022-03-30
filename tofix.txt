@@ -1,0 +1,2 @@
+sidebar clamp not working
+sidebar bottom is white

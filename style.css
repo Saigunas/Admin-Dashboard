@@ -7,6 +7,7 @@
     --sidebar-fontsize: 1.1rem;
     --sidebar-dashboardsize: calc(var(--sidebar-fontsize)*1.5);
     --sidebar--fontcolor: #ffffff;
+    --sidebar-maxWidth: 15em;
     
     --header-background: #F9FAFB;
     --searchbar-background: #E5E7EB;
@@ -16,6 +17,8 @@
     --content-paddingtop: 2.2rem;
     --content-cardSideDecoration: #9CA3AF;
     --content-cardBorderRadius: 1em;
+    --content-cardShadow: 3px 5px 6px -2px rgba(0,0,0,0.27);
+    --content-descriptionColor: rgb(112, 112, 112);
 
     --profilepic-width: 2.5em;
     --hover-color: #6B7280;
@@ -25,15 +28,18 @@
 
 body {
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: auto auto;
+    grid-template-rows: fit-content 1fr;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
 }
 
 
 .sidebar {
+    overflow: visible;
+    box-sizing: border-box;
     padding: var(--item-gap);
+    width: var(--sidebar-maxWidth);
     height: 100%;
     grid-row: 1/3;
     display: grid;
@@ -138,7 +144,7 @@ body {
 
 .header .profilepic {
     width: var(--profilepic-width);
-    height: auto;
+    height: var(--profilepic-width);
     border-radius: 100%;
 }
 
@@ -188,10 +194,10 @@ body {
 }
 
 .content {
-    padding: var(--content-paddingtop) var(--item-gap1) 0px var(--item-gap);
+    padding: var(--content-paddingtop) var(--item-gap1) var(--item-gap);
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: fit-content;
     column-gap: var(--item-gap);
     row-gap: var(--item-gap1);
     background-color: var(--content-background);
@@ -202,6 +208,12 @@ body {
 
 .projects-area {
     grid-row: 1/3;
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+    gap: var(--item-gap1);
 }
 
 .content-title {
@@ -218,8 +230,8 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    -webkit-box-shadow: 3px 5px 6px -2px rgba(0,0,0,0.27); 
-    box-shadow: 3px 5px 6px -2px rgba(0,0,0,0.27);
+    -webkit-box-shadow: var(--content-cardShadow); 
+    box-shadow: var(--content-cardShadow);
 }
 
 .card .side-decoration {
@@ -232,16 +244,15 @@ body {
     border-radius:  var(--content-cardBorderRadius) 0px;
 }
 
-.project-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
-    gap: var(--item-gap1);
-}
 
 .project-cards .project-name {
     font-weight: 700;
     font-size: var(--sidebar-fontsize);
     padding-bottom: 0.5em;
+}
+
+.project-cards .project-description {
+    color: var(--content-descriptionColor);
 }
 
 .project-cards .card-icons {
@@ -254,4 +265,71 @@ body {
 
 .card-icons img:hover {
     cursor: pointer;
+}
+
+.announcement-cards {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    background-color: var(--header-background);
+    padding: var(--item-gap1);
+    gap: var(--item-gap);
+    border-radius: var(--content-cardBorderRadius);
+    -webkit-box-shadow: var(--content-cardShadow); 
+    box-shadow: var(--content-cardShadow);
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgb(187, 187, 187);
+}
+
+.announcement-cards .card .announcement-name {
+    font-weight: 700;
+    padding-bottom: 0.5em;
+}
+
+.announcement-cards .card .announcement-description {
+    font-size: 0.85rem;
+    color: var(--content-descriptionColor);
+}
+
+.trending-cards {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    background-color: var(--header-background);
+    padding: var(--item-gap);
+    gap: var(--item-gap);
+    border-radius: var(--content-cardBorderRadius);
+    -webkit-box-shadow: var(--content-cardShadow); 
+    box-shadow: var(--content-cardShadow);
+}
+
+.trending-cards .card{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: var(--item-gap);
+    row-gap: 0.3em;
+    justify-content: flex-start;
+}
+
+.trending-cards .card img {
+    grid-row: 1/3;
+    width: var(--profilepic-width);
+    height: var(--profilepic-width);
+    border-radius: 100%;
+}
+
+
+.trending-cards .card .profile-tag{
+    align-self: flex-end;
+}
+
+.trending-cards .card .profile-name{
+    align-self: flex-start;
+    color: var(--content-descriptionColor);
 }
