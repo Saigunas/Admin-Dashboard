@@ -3,26 +3,26 @@
     --item-gap: 1rem;
     --item-gap1: calc(var(--item-gap)*1.75);
 
-    --sidebar-background: #9CA3AF;
+    --sidebar-background: #C1121F;
     --sidebar-fontsize: 1.1rem;
     --sidebar-dashboardsize: calc(var(--sidebar-fontsize)*1.5);
-    --sidebar--fontcolor: #ffffff;
+    --sidebar--fontcolor: #FDEDEE;
     --sidebar-maxWidth: 15em;
     
     --header-background: #F9FAFB;
-    --searchbar-background: #E5E7EB;
+    --searchbar-background: #F9C8CB;
     --header-greetingsize: 1.5rem;
 
-    --content-background: #E5E7EB;
+    --content-background: #F9C8CB;
     --content-paddingtop: 2.2rem;
-    --content-cardSideDecoration: #9CA3AF;
+    --content-cardSideDecoration: #0077B8;
     --content-cardBorderRadius: 1em;
     --content-cardShadow: 3px 5px 6px -2px rgba(0,0,0,0.27);
     --content-descriptionColor: rgb(112, 112, 112);
     --content-cardHeight: 15em;
 
     --profilepic-width: 2.5em;
-    --hover-color: #6B7280;
+    --hover-color: #5C0A10;
     --transition-time: 0.5s;
 
 }
