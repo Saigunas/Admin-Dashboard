@@ -30,7 +30,6 @@ body {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: fit-content 1fr;
-    min-height: 100vh;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -208,11 +207,15 @@ body {
 
 .projects-area {
     grid-row: 1/3;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-cards {
+    flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+    grid-auto-rows: 1fr;
     gap: var(--item-gap1);
 }
 
@@ -226,7 +229,7 @@ body {
     background-color: var(--header-background);
     padding: var(--item-gap1);
     border-radius: var(--content-cardBorderRadius);
-    height: 14em;
+    max-height: 20em;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -296,6 +299,10 @@ hr {
     color: var(--content-descriptionColor);
 }
 
+.trending-area {
+    align-self: flex-end;
+}
+
 .trending-cards {
     height: fit-content;
     display: grid;
@@ -309,7 +316,7 @@ hr {
     box-shadow: var(--content-cardShadow);
 }
 
-.trending-cards .card{
+.trending-cards .card {
     display: grid;
     grid-template-columns: repeat(2, auto);
     column-gap: var(--item-gap);
